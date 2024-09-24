@@ -20,6 +20,7 @@ const requestNotificationPermission = async () => {
         color: 'positive',
         message: 'Showing notification after 10s...'
       })
+      console.log('start countdown');
       sendNotificationAfterDelay()
     } else {
       $q.notify({
@@ -33,8 +34,10 @@ const requestNotificationPermission = async () => {
 }
 
 const sendNotificationAfterDelay = () => {
+  console.log(1);
   setTimeout(() => {
     console.log('sendNotificationAfterDelay');
+    const notification = new Notification("Hi there!");
     console.log("'serviceWorker' in navigator: ", 'serviceWorker' in navigator);
     console.log("'PushManager' in window: ", 'PushManager' in window);
     if ('serviceWorker' in navigator && 'PushManager' in window) {
