@@ -1,0 +1,1 @@
+import{b as a}from"./index.8ee2c37b.js";import{a as r}from"./axios.0ed95acd.js";const e=r.create({baseURL:"https://reminder-0.server.michoest.com"});var t=a(({app:o})=>{o.config.globalProperties.$axios=r,o.config.globalProperties.$api=e});export{e as api,t as default};
