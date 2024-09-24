@@ -34,8 +34,13 @@ const requestNotificationPermission = async () => {
 
 const sendNotificationAfterDelay = () => {
   setTimeout(() => {
+    console.log('sendNotificationAfterDelay');
+    console.log("'serviceWorker' in navigator: ", 'serviceWorker' in navigator);
+    console.log("'PushManager' in window: ", 'PushManager' in window);
     if ('serviceWorker' in navigator && 'PushManager' in window) {
+      console.log('navigator.serviceWorker.ready');
       navigator.serviceWorker.ready.then((registration) => {
+        console.log('registration.showNotification');
         registration.showNotification('Welcome!', {
           body: 'Thanks for using our PWA!',
           icon: '/icons/favicon-128x128.png'
