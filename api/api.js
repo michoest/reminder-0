@@ -75,11 +75,11 @@ app.post('/subscribe', (req, res) => {
   
 // Send push notification
 const sendPushNotifications = () => {
-    const payload = { title: 'Schallo', message: 'Schie weht?', timestamp: dayjs() };
+    const payload = { title: 'Schallo', body: 'Schie weht?' };
 
     subscriptions.forEach(async subscription => {
         try {
-            await webpush.sendNotification(subscription, payload);
+            await webpush.sendNotification(subscription, JSON.stringify(payload));
         }
         catch (err) {
             console.error(err);
