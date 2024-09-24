@@ -89,9 +89,15 @@ const sendPushNotifications = () => {
 
 let timer = null;
 app.get('/start', (req, res, next) => {
-    timer = setInterval(sendPushNotifications, 10000);
+    if (!timer) {
+        timer = setInterval(sendPushNotifications, 10000);
 
-    return res.json({ numberOfSubscriptions: subscriptions.length });
+    return res.json({ numberOfSubscriptions: subscriptions.length });    
+    }
+    else {
+        return res.json({ message: 'Already started!' });
+    }
+
 });
 
 app.get('/stop', (req, res, next) => {

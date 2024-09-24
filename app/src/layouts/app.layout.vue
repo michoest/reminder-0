@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-page-container class="flex flex-center">
-      <PushNotification />
+      <!-- <PushNotification /> -->
       <router-view />
     </q-page-container>
   </q-layout>

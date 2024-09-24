@@ -2,6 +2,9 @@ const routes = [
   {
     path: '/',
     component: () => import('layouts/app.layout.vue'),
+    children: [
+      { path: '', component: () => import('pages/notification.page.vue')}
+    ]
   },
 
   // Always leave this as last one,
